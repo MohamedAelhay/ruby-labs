@@ -1,3 +1,4 @@
+require 'bcrypt'
 class User < ApplicationRecord
     attr_accessor :password
     # attr_accessible :username, :email, :password, :password_confirmation
