@@ -1578,3 +1578,46 @@ Unpermitted parameter: :password_confirmation
 Completed 200 OK in 158ms (Views: 41.3ms | ActiveRecord: 28.5ms)
 
 
+Started GET "/" for ::1 at 2019-04-22 13:59:40 +0200
+  [1m[35m (6.1ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  ↳ /home/mohamed/.rbenv/versions/2.6.1/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  ↳ /home/mohamed/.rbenv/versions/2.6.1/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 315ms (Views: 309.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/articles" for ::1 at 2019-04-22 13:59:43 +0200
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (1.3ms)[0m  [1m[34mSELECT `articles`.* FROM `articles`[0m
+  ↳ app/views/articles/index.html.erb:11
+  Rendered articles/index.html.erb within layouts/application (11.7ms)
+Completed 200 OK in 37ms (Views: 29.1ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/articles/1" for ::1 at 2019-04-22 13:59:46 +0200
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT  `articles`.* FROM `articles` WHERE `articles`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/articles_controller.rb:7
+  Rendering articles/show.html.erb within layouts/application
+  [1m[36mComment Load (0.8ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`article_id` = 1[0m
+  ↳ app/views/articles/show.html.erb:12
+  Rendered collection of comments/_comment.html.erb [3 times] (2.1ms)
+  Rendered comments/_form.html.erb (9.0ms)
+  Rendered articles/show.html.erb within layouts/application (34.3ms)
+Completed 200 OK in 60ms (Views: 53.1ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/articles" for ::1 at 2019-04-22 13:59:51 +0200
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT `articles`.* FROM `articles`[0m
+  ↳ app/views/articles/index.html.erb:11
+  Rendered articles/index.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 30ms (Views: 28.2ms | ActiveRecord: 0.5ms)
+
+
